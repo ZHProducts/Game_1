@@ -1,5 +1,6 @@
 package com.example.game_1
 
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,24 +9,34 @@ import kotlinx.android.synthetic.main.activity_playergp_home.*
 
 
 class Playergphome : AppCompatActivity() {
-
-    val countFood =  FactoryCurrency.create(currencytype= TypeCurrency.Food, sizeoncreate = 10)
-    val countBauern = FactoryPopulation.create(TypePopulation.Bauer, 10)
-    var countPopulation = 0
+    companion object {
+        val countFood = FactoryCurrency.create(currencytype = TypeCurrency.Food, sizeoncreate = 10)
+        val countBauern = FactoryPopulation.create(TypePopulation.Bauer, 10)
+        var countPopulation = 0
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_playergp_home)
 
         window.decorView.apply { if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+            systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN or View.SYSTEM_UI_FLAG_IMMERSIVE
         }
         }
 
 
-        btnNextDay.setOnClickListener(){
-         CalcNextDay()
+        btnNextDay.setOnClickListener{
+         calcNextDay()
         }
+
+        btnBerufe.setOnClickListener{
+
+            val intent = Intent(this,Playergpberufe::class.java)
+            startActivity(intent)
+        }
+
+        screenRefresh()
+
     }
 
     //START - Set Fullscreen Part
@@ -52,28 +63,19 @@ class Playergphome : AppCompatActivity() {
     //END - Set Fullscreen Part
 
 
-    fun CalcNextDay(){
-
-        if(countBauern is Populations.Bauer){
-            countBauern.calcNewDay()
-
-        }
-
-        countPopulation = countBauern.size
-
+    private fun calcNextDay(){
+       countPopulation = countBauern.size
         if(countFood is Currencys.Food){
            countFood.increaseBy(countBauern.size)
-            countFood.useFood(countPopulation)
+            //countFood.useFood(countPopulation)
         }
-
-        ScreenRefresh()
-
+        screenRefresh()
     }
 
 
 
-    fun ScreenRefresh(){
-        idFoodcount.setText(countFood.size.toString())
-        idPopcount.setText(countBauern.size.toString())
+    private fun screenRefresh(){
+        idFoodcount.text = countFood.size.toString()
+        idPopcount.text = countBauern.size.toString()
     }
 }

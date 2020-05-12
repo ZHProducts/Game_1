@@ -22,9 +22,14 @@ object FactoryPopulation {
 
 sealed class Populations {
 
-    var size:Int = 5
+    var size:Int = 0
 
-    data class Bauer(val populationtype: String, var sizeoncreate: Int) : Populations()
+    data class Bauer(private val populationtype: String, private var sizeoncreate: Int) : Populations()
+    {
+        init{
+            size = sizeoncreate
+            }
+    }
     data class Test(val populationtype: String) : Populations()
 
 }

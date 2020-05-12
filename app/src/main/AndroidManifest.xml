@@ -10,16 +10,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Playergphome"
+        <activity
+            android:name=".Playergpberufe"
             android:screenOrientation="landscape"
-            tools:ignore="LockedOrientationActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"
-            >
+            tools:ignore="LockedOrientationActivity" />
+
+        <activity
+            android:name=".Playergphome"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
     </application>
 
