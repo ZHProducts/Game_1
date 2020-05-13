@@ -18,12 +18,19 @@ object FactoryCurrency {
             TypeCurrency.Gold -> Currencys.Gold(currencyname)
         }
     }
-
 }
 
 sealed class Currencys {
     var size:Int = 0
-    data class Food(val populationtype: String, var sizeoncreate: Int) : Currencys()
+    var name:String= ""
+
+    data class Food(val currencytype: String, var sizeoncreate: Int) : Currencys()
+    {
+        init{
+            size = sizeoncreate
+            name = currencytype
+        }
+    }
     data class Gold(val populationtype: String) : Currencys()
 }
 

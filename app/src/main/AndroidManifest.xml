@@ -12,13 +12,13 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Playergpberufe"
-            android:screenOrientation="landscape"
+            android:screenOrientation="sensorLandscape"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             tools:ignore="LockedOrientationActivity" />
 
         <activity
             android:name=".Playergphome"
-            android:screenOrientation="landscape"
+            android:screenOrientation="sensorLandscape"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             tools:ignore="LockedOrientationActivity">
             <intent-filter>

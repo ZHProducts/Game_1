@@ -23,11 +23,13 @@ object FactoryPopulation {
 sealed class Populations {
 
     var size:Int = 0
+    var name:String = ""
 
     data class Bauer(private val populationtype: String, private var sizeoncreate: Int) : Populations()
     {
         init{
             size = sizeoncreate
+            name = populationtype
             }
     }
     data class Test(val populationtype: String) : Populations()
@@ -39,6 +41,10 @@ sealed class Populations {
 fun Populations.Bauer.calcNewDay(){
     size++
 }
+
+
+
+
 
 
 
