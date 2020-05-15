@@ -24,6 +24,14 @@ sealed class Currencys {
     var size:Int = 0
     var name:String= ""
 
+    fun increaseBy(amount:Int){
+        size += amount
+    }
+
+    fun useCurrency(amount: Int){
+        size -= amount
+    }
+
     data class Food(val currencytype: String, var sizeoncreate: Int) : Currencys()
     {
         init{
@@ -34,9 +42,6 @@ sealed class Currencys {
     data class Gold(val populationtype: String) : Currencys()
 }
 
-fun Currencys.Food.increaseBy(amount:Int){
-    size += amount
-}
 
 fun Currencys.Food.useFood(amount:Int){
     size -=amount

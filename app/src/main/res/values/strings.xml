@@ -3,6 +3,10 @@
     <string name="berufe_button">Berufe Button</string>
     <string name="next_day_button">Next Day Button</string>
     <string name="pop_icon">Pop_Icon:</string>
-    <string name="count_max_gain">count/max/+gain</string>
+    <string name="count_max_gain">c/m/+g</string>
     <string name="food_icon">Food_Icon:</string>
+    <string name="buy">Buy</string>
+    <string name="Myreturn">return</string>
+    <string name="prev">Prev</string>
+    <string name="next">Next</string>
 </resources>
