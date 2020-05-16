@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="YOUR ARMY"
+        android:text="@string/your_army"
         android:textColor="@android:color/holo_green_dark"
         android:textSize="23sp"
         app:layout_constraintEnd_toEndOf="@+id/ivPlayerArmy"
@@ -24,7 +24,8 @@
         android:background="@drawable/icon_population_test_transparent_colored"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/player_army_img" />
 
 
 
@@ -35,7 +36,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="32dp"
-        android:text="HP"
+        android:text="@string/hp"
         app:layout_constraintStart_toEndOf="@+id/ivPlayerArmy"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="ATK"
+        android:text="@string/atk"
         app:layout_constraintStart_toStartOf="@+id/tvplayerarmyhp"
         app:layout_constraintTop_toBottomOf="@+id/tvplayerarmyhp" />
 
@@ -53,7 +54,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="DEF"
+        android:text="@string/def"
         app:layout_constraintStart_toStartOf="@+id/tvplayerarmyatk"
         app:layout_constraintTop_toBottomOf="@+id/tvplayerarmyatk" />
 
@@ -64,7 +65,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="ENEMY ARMY"
+        android:text="@string/enemy_army"
         android:textColor="@android:color/holo_red_dark"
         android:textSize="23sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -78,7 +79,8 @@
         android:background="@drawable/icon_population_test_transparent_colored"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/enemy_army_img" />
 
     <!-- ENEMY ARMY END -->
 
@@ -87,7 +89,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="HP"
+        android:text="@string/hp"
         app:layout_constraintBottom_toTopOf="@+id/tvenemyarmyatk"
         app:layout_constraintStart_toStartOf="@+id/tvenemyarmyatk" />
 
@@ -96,7 +98,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="ATK"
+        android:text="@string/atk"
         app:layout_constraintBottom_toTopOf="@+id/tvenemyarmydef"
         app:layout_constraintEnd_toEndOf="@+id/tvenemyarmydef" />
 
@@ -107,7 +109,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="32dp"
-        android:text="DEF"
+        android:text="@string/def"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/ivEnemyArmy" />
 
@@ -115,7 +117,7 @@
         android:id="@+id/btnkillEnemy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Kill enemy"
+        android:text="@string/kill_enemy"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/ivEnemyArmy"
         app:layout_constraintStart_toEndOf="@+id/ivPlayerArmy"
@@ -125,7 +127,7 @@
         android:id="@+id/btnattack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ATTACK"
+        android:text="@string/attack"
         app:layout_constraintBottom_toTopOf="@+id/btnkillEnemy"
         app:layout_constraintEnd_toEndOf="@+id/btnkillEnemy"
         app:layout_constraintStart_toStartOf="@+id/btnkillEnemy" />

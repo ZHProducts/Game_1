@@ -23,15 +23,15 @@ class Playergphome : AppCompatActivity() {
         var countPopulation = 0
     }
 
-    var MySave = "SaveData"
+    private var mySave = "SaveData"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_playergp_home)
 
-        val prefs = getSharedPreferences(MySave, Context.MODE_PRIVATE)
+        val prefs = getSharedPreferences(mySave, Context.MODE_PRIVATE)
         val editor = prefs.edit()
-        val f = File("/data/data/$packageName/shared_prefs/$MySave.xml")
+        val f = File("$filesDir/$packageName/shared_prefs/$mySave.xml")
 
 
         hideSystemUI(window)
@@ -49,7 +49,7 @@ class Playergphome : AppCompatActivity() {
             startActivity(intent)
         }
 
-        btnReset.setOnClickListener(){
+        btnReset.setOnClickListener{
             resetGame(editor)
         }
 
@@ -106,8 +106,7 @@ class Playergphome : AppCompatActivity() {
         val upkeepBauern = countBauern.size * countBauern.upkeepFood
         val upkeepHaender = countHaendler.size * countHaendler.upkeepFood
         val upkeepRitter = countRitter.size * countRitter.upkeepFood
-        val rv = upkeepBauern + upkeepHaender + upkeepRitter
-        return rv
+        return upkeepBauern + upkeepHaender + upkeepRitter
     }
 
     private fun recalcPopulationSize(){
@@ -128,23 +127,25 @@ class Playergphome : AppCompatActivity() {
 
     }
 
-    fun goodEncounter(rolled:Int){
+    private fun goodEncounter(rolled:Int){
         val toast:Toast
         var rolledcoins = rolled
         if (rolledcoins in 1..9) {
         toast = Toast.makeText(applicationContext, "Du hast $rolledcoins Bauern gefunden ", Toast.LENGTH_SHORT)
             countBauern.size += rolled
+            toast.show()
         }
         else {
             rolledcoins /= 10
         toast = Toast.makeText(applicationContext, "Du hast $rolledcoins Münzen gefunden" , Toast.LENGTH_SHORT)
             countGold.increaseBy(rolledcoins)
+            toast.show()
         }
-        toast.show()
+
 
     }
 
-    fun enemyEncounter(){
+    private fun enemyEncounter(){
         val toast:Toast = Toast.makeText(applicationContext, "EnemyEncounter", Toast.LENGTH_SHORT)
         val intent = Intent(this,Playergpbattle::class.java)
         toast.show()

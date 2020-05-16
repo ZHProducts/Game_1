@@ -8,5 +8,19 @@
     <string name="buy">Buy</string>
     <string name="Myreturn">return</string>
     <string name="prev">Prev</string>
+    <string name="hp">HP: %d</string>
+    <string name="atk">ATK: %d</string>
+    <string name="def">DEF: %d</string>
     <string name="next">Next</string>
+    <string name="gold_icon">Gold_Icon</string>
+    <string name="reset">RESET</string>
+    <string name="bauer">Bauer</string>
+    <string name="haendler">Händler</string>
+    <string name="ritter">Ritter</string>
+    <string name="your_army">YOUR ARMY</string>
+    <string name="player_army_img">player_army_img</string>
+    <string name="enemy_army">ENEMY ARMY</string>
+    <string name="enemy_army_img">enemy_army_img</string>
+    <string name="kill_enemy">Kill enemy</string>
+    <string name="attack">Attack</string>
 </resources>

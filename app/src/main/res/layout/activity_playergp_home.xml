@@ -44,7 +44,8 @@
             android:id="@+id/Pop_Icon"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:background="@drawable/icon_population_test_transparent_colored" />
+            android:background="@drawable/icon_population_test_transparent_colored"
+            android:contentDescription="@string/pop_icon" />
 
         <TextView
             android:id="@+id/idPopcount"
@@ -57,7 +58,8 @@
             android:id="@+id/Food_Icon"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:background="@drawable/icon_food_test_transparent_colored" />
+            android:background="@drawable/icon_food_test_transparent_colored"
+            android:contentDescription="@string/food_icon" />
 
         <TextView
             android:id="@+id/idFoodcount"
@@ -70,7 +72,8 @@
             android:id="@+id/Gold_Icon"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:background="@drawable/icon_gold_test_transparent_colored" />
+            android:background="@drawable/icon_gold_test_transparent_colored"
+            android:contentDescription="@string/gold_icon" />
 
         <TextView
             android:id="@+id/idGoldcount"
@@ -86,7 +89,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:text="RESET"
+        android:text="@string/reset"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

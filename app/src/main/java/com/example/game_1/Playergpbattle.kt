@@ -7,13 +7,13 @@ import kotlinx.android.synthetic.main.activity_playergpbattle.*
 
 class Playergpbattle : AppCompatActivity() {
 
-    var playerhp = Playergphome.countPopulation
-    var playeratk = Playergphome.countRitter.size
-    var playerdef = Playergphome.countRitter.size
+    private var playerhp = Playergphome.countPopulation
+    private var playeratk = Playergphome.countRitter.size
+    private var playerdef = Playergphome.countRitter.size
 
-    var enemyhp = 10
-    var enemyatk = 1
-    var enemydef = 0
+    private var enemyhp = 10
+    private var enemyatk = 1
+    private var enemydef = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,11 +24,11 @@ class Playergpbattle : AppCompatActivity() {
 
         refreshScreen()
 
-        btnkillEnemy.setOnClickListener(){
+        btnkillEnemy.setOnClickListener{
             finish()
         }
 
-        btnattack.setOnClickListener(){
+        btnattack.setOnClickListener{
             playerhp -= enemyatk
             enemyhp -= playeratk
 
@@ -41,13 +41,13 @@ class Playergpbattle : AppCompatActivity() {
         }
     }
 
-    fun refreshScreen(){
-        tvplayerarmyhp.setText("HP: $playerhp")
-        tvplayerarmyatk.setText("ATK: $playeratk")
-        tvplayerarmydef.setText("DEF: $playerdef")
+    private fun refreshScreen(){
+        tvplayerarmyhp.text = getString(R.string.hp, playerhp)
+        tvplayerarmyatk.text = getString(R.string.atk, playeratk)
+        tvplayerarmydef.text = getString(R.string.def, playerdef)
 
-        tvenemyarmyhp.setText("HP: $enemyhp")
-        tvenemyarmyatk.setText("ATK: $enemyatk")
-        tvenemyarmydef.setText("DEF: $enemydef")
+        tvenemyarmyhp.text = getString(R.string.hp, enemyhp)
+        tvenemyarmyatk.text = getString(R.string.atk, enemyatk)
+        tvenemyarmydef.text = getString(R.string.def, enemydef)
     }
 }
