@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Playergpbattle">
+    <!-- YOUR ARMY START -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="YOUR ARMY"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="23sp"
+        app:layout_constraintEnd_toEndOf="@+id/ivPlayerArmy"
+        app:layout_constraintStart_toStartOf="@+id/ivPlayerArmy"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivPlayerArmy"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/icon_population_test_transparent_colored"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    <TextView
+        android:id="@+id/tvplayerarmyhp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="32dp"
+        android:text="HP"
+        app:layout_constraintStart_toEndOf="@+id/ivPlayerArmy"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvplayerarmyatk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="ATK"
+        app:layout_constraintStart_toStartOf="@+id/tvplayerarmyhp"
+        app:layout_constraintTop_toBottomOf="@+id/tvplayerarmyhp" />
+
+    <TextView
+        android:id="@+id/tvplayerarmydef"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="DEF"
+        app:layout_constraintStart_toStartOf="@+id/tvplayerarmyatk"
+        app:layout_constraintTop_toBottomOf="@+id/tvplayerarmyatk" />
+
+
+    <!-- YOUR ARMY END -->
+    <!-- ENEMY ARMY START -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="ENEMY ARMY"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="23sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/ivEnemyArmy"
+        app:layout_constraintTop_toTopOf="@+id/ivEnemyArmy" />
+
+    <ImageView
+        android:id="@+id/ivEnemyArmy"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/icon_population_test_transparent_colored"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- ENEMY ARMY END -->
+
+    <TextView
+        android:id="@+id/tvenemyarmyhp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="HP"
+        app:layout_constraintBottom_toTopOf="@+id/tvenemyarmyatk"
+        app:layout_constraintStart_toStartOf="@+id/tvenemyarmyatk" />
+
+    <TextView
+        android:id="@+id/tvenemyarmyatk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="ATK"
+        app:layout_constraintBottom_toTopOf="@+id/tvenemyarmydef"
+        app:layout_constraintEnd_toEndOf="@+id/tvenemyarmydef" />
+
+    <TextView
+        android:id="@+id/tvenemyarmydef"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="32dp"
+        android:text="DEF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ivEnemyArmy" />
+
+    <Button
+        android:id="@+id/btnkillEnemy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kill enemy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ivEnemyArmy"
+        app:layout_constraintStart_toEndOf="@+id/ivPlayerArmy"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnattack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ATTACK"
+        app:layout_constraintBottom_toTopOf="@+id/btnkillEnemy"
+        app:layout_constraintEnd_toEndOf="@+id/btnkillEnemy"
+        app:layout_constraintStart_toStartOf="@+id/btnkillEnemy" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

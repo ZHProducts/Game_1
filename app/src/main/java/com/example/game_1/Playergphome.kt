@@ -5,8 +5,10 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_playergp_home.*
 import java.io.File
+import kotlin.random.Random
 
 
 class Playergphome : AppCompatActivity() {
@@ -16,6 +18,7 @@ class Playergphome : AppCompatActivity() {
 
         val countBauern = FactoryPopulation.create(TypePopulation.Bauer, sizeoncreate = 1, upkeepfood = 0, buildingCost = 2)
         val countHaendler = FactoryPopulation.create(TypePopulation.Haendler,sizeoncreate = 1, upkeepfood = 1, buildingCost = 10)
+        val countRitter = FactoryPopulation.create(TypePopulation.Ritter, sizeoncreate = 1, upkeepfood = 5, buildingCost = 30)
 
         var countPopulation = 0
     }
@@ -69,6 +72,7 @@ class Playergphome : AppCompatActivity() {
             countFood.useFood(getUpkeepcost())
         }
 
+        checkforEncounter()
 
         screenRefresh()
     }
@@ -101,13 +105,50 @@ class Playergphome : AppCompatActivity() {
     private fun getUpkeepcost():Int{
         val upkeepBauern = countBauern.size * countBauern.upkeepFood
         val upkeepHaender = countHaendler.size * countHaendler.upkeepFood
-        val rv = upkeepBauern + upkeepHaender
+        val upkeepRitter = countRitter.size * countRitter.upkeepFood
+        val rv = upkeepBauern + upkeepHaender + upkeepRitter
         return rv
     }
 
     private fun recalcPopulationSize(){
-        countPopulation = countBauern.size + countHaendler.size
+        countPopulation = countBauern.size + countHaendler.size + countRitter.size
     }
 
+
+    private fun checkforEncounter(){
+        val rollforEncounter = Random.nextInt(0,100)
+
+        if (rollforEncounter in 1..30){
+            goodEncounter(rollforEncounter)
+        }
+        if (rollforEncounter in 31..40){
+            enemyEncounter()
+        }
+
+
+    }
+
+    fun goodEncounter(rolled:Int){
+        val toast:Toast
+        var rolledcoins = rolled
+        if (rolledcoins in 1..9) {
+        toast = Toast.makeText(applicationContext, "Du hast $rolledcoins Bauern gefunden ", Toast.LENGTH_SHORT)
+            countBauern.size += rolled
+        }
+        else {
+            rolledcoins /= 10
+        toast = Toast.makeText(applicationContext, "Du hast $rolledcoins Münzen gefunden" , Toast.LENGTH_SHORT)
+            countGold.increaseBy(rolledcoins)
+        }
+        toast.show()
+
+    }
+
+    fun enemyEncounter(){
+        val toast:Toast = Toast.makeText(applicationContext, "EnemyEncounter", Toast.LENGTH_SHORT)
+        val intent = Intent(this,Playergpbattle::class.java)
+        toast.show()
+        startActivity(intent)
+    }
 
 }
