@@ -1,8 +1,10 @@
 package com.example.game_1
 
+import android.content.Context
 import android.os.Build
 import android.view.View
 import android.view.Window
+import android.widget.Toast
 
 fun hideSystemUI(window:Window) {
     // Enables regular immersive mode.
@@ -20,3 +22,9 @@ fun hideSystemUI(window:Window) {
                 or View.SYSTEM_UI_FLAG_FULLSCREEN)
     }
 }
+
+fun Context.showPlayerMassage(string: String ){
+    val toast = Toast.makeText(applicationContext, string, Toast.LENGTH_SHORT)
+    toast.show()
+}
+

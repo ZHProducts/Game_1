@@ -43,6 +43,13 @@ sealed class Currencys {
 }
 
 
-fun Currencys.Food.useFood(amount:Int){
-    size -=amount
+fun Currencys.Food.useFood(amount:Int):Boolean{
+    return if (size > amount){
+        size -=amount
+        true
+    }
+    else{
+        size = 0
+        false
+    }
 }

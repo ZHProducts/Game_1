@@ -13,7 +13,7 @@ import kotlin.random.Random
 
 class Playergphome : AppCompatActivity() {
     companion object {
-        val countFood = FactoryCurrency.create(currencytype = TypeCurrency.Food, sizeoncreate = 3)
+        val countFood = FactoryCurrency.create(currencytype = TypeCurrency.Food, sizeoncreate = 10)
         val countGold = FactoryCurrency.create(currencytype = TypeCurrency.Gold, sizeoncreate = 0)
 
         val countBauern = FactoryPopulation.create(TypePopulation.Bauer, sizeoncreate = 1, upkeepfood = 0, buildingCost = 2)
@@ -69,7 +69,8 @@ class Playergphome : AppCompatActivity() {
         countGold.increaseBy(countHaendler.size)
 
         if(countFood is Currencys.Food) {
-            countFood.useFood(getUpkeepcost())
+            if (!countFood.useFood(getUpkeepcost()))
+                showPlayerMassage("DEINE BEVÖLKERUNG HUNGERT")
         }
 
         checkforEncounter()
@@ -123,26 +124,19 @@ class Playergphome : AppCompatActivity() {
         if (rollforEncounter in 31..40){
             enemyEncounter()
         }
-
-
     }
 
     private fun goodEncounter(rolled:Int){
-        val toast:Toast
         var rolledcoins = rolled
         if (rolledcoins in 1..9) {
-        toast = Toast.makeText(applicationContext, "Du hast $rolledcoins Bauern gefunden ", Toast.LENGTH_SHORT)
+            showPlayerMassage("Du hast $rolledcoins Bauern gefunden ")
             countBauern.size += rolled
-            toast.show()
         }
         else {
             rolledcoins /= 10
-        toast = Toast.makeText(applicationContext, "Du hast $rolledcoins Münzen gefunden" , Toast.LENGTH_SHORT)
+            showPlayerMassage( "Du hast $rolledcoins Münzen gefunden" )
             countGold.increaseBy(rolledcoins)
-            toast.show()
         }
-
-
     }
 
     private fun enemyEncounter(){

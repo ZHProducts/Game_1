@@ -62,6 +62,7 @@
     <!-- YOUR ARMY END -->
     <!-- ENEMY ARMY START -->
     <TextView
+        android:id="@+id/tvenemyarmyname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -131,6 +132,5 @@
         app:layout_constraintBottom_toTopOf="@+id/btnkillEnemy"
         app:layout_constraintEnd_toEndOf="@+id/btnkillEnemy"
         app:layout_constraintStart_toStartOf="@+id/btnkillEnemy" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
