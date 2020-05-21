@@ -1,8 +1,14 @@
 package com.example.game_1
 
+import android.media.AudioAttributes
+import android.media.AudioManager
+import android.media.MediaPlayer
+import android.media.SoundPool
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.provider.MediaStore
 import android.view.MotionEvent
 import android.view.View
 import kotlinx.android.synthetic.main.activity_playergpbattle.*
@@ -19,9 +25,31 @@ class Playergpbattle : AppCompatActivity(), Runnable {
 
     private var heavymax:Int = 0
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_playergpbattle)
+
+        val soundPool:SoundPool
+
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        val audioattributes: AudioAttributes =
+            AudioAttributes.Builder()
+                .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
+                .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                .build()
+
+            soundPool = SoundPool.Builder()
+                .setMaxStreams(6)
+                .setAudioAttributes(audioattributes)
+                .build()
+
+        } else {
+            soundPool = SoundPool(6,AudioManager.STREAM_MUSIC,0)
+        }
+        val sound1 = soundPool.load(this, R.raw.swords, 1)
 
 
         hideSystemUI(window)
@@ -38,7 +66,6 @@ class Playergpbattle : AppCompatActivity(), Runnable {
                 MotionEvent.ACTION_DOWN -> {
                     mHandler.postDelayed(heavyattackaction, 500)
                 }
-
                 MotionEvent.ACTION_UP -> {
                     mHandler.removeCallbacks(heavyattackaction)
                     enemy.health -= playeratk
@@ -48,6 +75,7 @@ class Playergpbattle : AppCompatActivity(), Runnable {
                     if (enemy.health <= 0) {
                         btnkillEnemy.visibility = View.VISIBLE
                     }
+                    soundPool.play(sound1,1f,1f,0,0,0f)
                 }
             }
             v?.onTouchEvent(event) ?: true

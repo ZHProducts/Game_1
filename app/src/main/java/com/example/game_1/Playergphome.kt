@@ -5,6 +5,8 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_playergp_home.*
 import java.io.File
@@ -31,17 +33,23 @@ class Playergphome : AppCompatActivity() {
 
         val prefs = getSharedPreferences(mySave, Context.MODE_PRIVATE)
         val editor = prefs.edit()
-        val f = File("$filesDir/$packageName/shared_prefs/$mySave.xml")
+        val f = File("/data/data/shared_prefs/$mySave.xml")
 
 
         hideSystemUI(window)
 
-        if(f.exists()){
-        loadGame(prefs)}
+        //if(f.exists()){
+        loadGame(prefs)
+        //}
+
 
         btnNextDay.setOnClickListener{
          calcNextDay()
          saveGame(editor)
+
+            //Quick Fix for anti spam
+         btnNextDay.visibility = View.INVISIBLE
+         Handler().postDelayed({btnNextDay.visibility = View.VISIBLE},100)
         }
 
         btnBerufe.setOnClickListener{
