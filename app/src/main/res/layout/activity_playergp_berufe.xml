@@ -21,6 +21,7 @@
             android:layout_height="match_parent">
 
             <TextView
+                android:id="@+id/tvBauer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -28,6 +29,15 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/whatdoBauerndo"
+                app:layout_constraintBottom_toTopOf="@+id/BerufeShowerBauer"
+                app:layout_constraintEnd_toEndOf="@+id/tvBauer"
+                app:layout_constraintStart_toStartOf="@+id/tvBauer"
+                app:layout_constraintTop_toBottomOf="@+id/tvBauer" />
 
             <TextView
                 android:id="@+id/BerufeShowerBauer"
@@ -57,6 +67,7 @@
             android:layout_height="match_parent">
 
             <TextView
+                android:id="@+id/tvHaendler"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -64,6 +75,15 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/whatdoHaendlerdo"
+                app:layout_constraintBottom_toTopOf="@+id/BerufeShowerHaendler"
+                app:layout_constraintEnd_toEndOf="@+id/tvHaendler"
+                app:layout_constraintStart_toStartOf="@+id/tvHaendler"
+                app:layout_constraintTop_toBottomOf="@+id/tvHaendler" />
 
             <TextView
                 android:id="@+id/BerufeShowerHaendler"
@@ -88,12 +108,60 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
         <!-- Haendler Area End -->
 
+        <!-- Holzfäller Area Start -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvHolzfaeller"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/holzfaeller"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/whatdoHolzfaellerdo"
+                app:layout_constraintBottom_toTopOf="@+id/BerufeShowerHolzfaeller"
+                app:layout_constraintEnd_toEndOf="@+id/tvHolzfaeller"
+                app:layout_constraintStart_toStartOf="@+id/tvHolzfaeller"
+                app:layout_constraintTop_toBottomOf="@+id/tvHolzfaeller" />
+
+            <TextView
+                android:id="@+id/BerufeShowerHolzfaeller"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/holzfaeller"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btnHolzfaellerincrease"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:text="@string/buy"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- Holzfäller Area End -->
+
         <!-- Ritter Area Start -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
+                android:id="@+id/tvRitter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -101,6 +169,15 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/whatdoRitterdo"
+                app:layout_constraintBottom_toTopOf="@+id/BerufeShowerRitter"
+                app:layout_constraintEnd_toEndOf="@+id/tvRitter"
+                app:layout_constraintStart_toStartOf="@+id/tvRitter"
+                app:layout_constraintTop_toBottomOf="@+id/tvRitter" />
 
             <TextView
                 android:id="@+id/BerufeShowerRitter"

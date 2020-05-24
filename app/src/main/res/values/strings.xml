@@ -23,4 +23,12 @@
     <string name="enemy_army_img">enemy_army_img</string>
     <string name="kill_enemy">Kill enemy</string>
     <string name="attack">Attack</string>
+    <string name="holzfaeller">Holzfäller</string>
+    <string name="amo_max_use">%d/%d/-%d</string>
+    <string name="whatdoBauerndo">Bauern produzieren jeden Tag Nahrung \n,um dein Volk am Leben zu halten.</string>
+    <string name="whatdoHaendlerdo">Händler erhöhen das Gold, \nwelches jeden dritten Tag produziert wird</string>
+    <string name="whatdoHolzfaellerdo">Holzfäller sammeln Holz \n No shit.</string>
+    <string name="whatdoRitterdo">Die Kampfkraft deiner Armee hängt von deinen Rittern ab.</string>
+    <string name="lagererweiterung_button">Lagererweiterung Button</string>
+    <string name="def0">0</string>
 </resources>

@@ -2,16 +2,10 @@ package com.example.game_1
 
 import kotlin.random.Random
 
-enum class TypeEnemy{
-    Goblin,Troll
-}
-
-
 object FactoryEnemy {
 
     fun create(): Enemy{
-              val creator:Int = Random.nextInt(1,100)
-                return when(creator){
+        return when(Random.nextInt(1,100)){
             in 1..50 -> Enemy.Goblin()
             in 51..100 -> Enemy.Troll()
                     else -> Enemy.Goblin()
@@ -26,7 +20,7 @@ sealed class Enemy {
     var defense = 0
 
 
-    class Goblin() : Enemy()
+    class Goblin : Enemy()
     {
         init{
             name = "Goblin"
@@ -36,7 +30,7 @@ sealed class Enemy {
         }
     }
 
-    class Troll() : Enemy()
+    class Troll : Enemy()
     {
         init{
             name = "Troll"

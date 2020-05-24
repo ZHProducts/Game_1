@@ -1,21 +1,19 @@
 package com.example.game_1
 
 enum class TypeCurrency{
-    Food, Gold
+    Food, Gold, Wood
 }
 
 
 object FactoryCurrency {
 
     fun create(currencytype:TypeCurrency, sizeoncreate:Int): Currencys{
-        val currencyname = when (currencytype){
-            TypeCurrency.Food -> currencytype.name
-            TypeCurrency.Gold -> currencytype.name
-        }
+        val currencyname = currencytype.name
 
         return when(currencytype){
             TypeCurrency.Food -> Currencys.Food(currencyname, sizeoncreate)
             TypeCurrency.Gold -> Currencys.Gold(currencyname)
+            TypeCurrency.Wood -> Currencys.Wood(currencyname, sizeoncreate)
         }
     }
 }
@@ -33,6 +31,13 @@ sealed class Currencys {
     }
 
     data class Food(val currencytype: String, var sizeoncreate: Int) : Currencys()
+    {
+        init{
+            size = sizeoncreate
+            name = currencytype
+        }
+    }
+    data class Wood(val currencytype: String, var sizeoncreate: Int) : Currencys()
     {
         init{
             size = sizeoncreate
